@@ -1,14 +1,17 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
     margin: 0;
+    padding: 0;
+    display: flex;
     height: 100vh;
     background-color: #f0f8ff;
+    overflow-x: hidden;
 }
 
 .container {
     display: flex;
     width: 100%;
+    height: 100vh;
 }
 
 .sidebar {
@@ -16,6 +19,8 @@ body {
     background: #0044cc;
     color: white;
     padding: 20px;
+    flex-shrink: 0;
+    overflow-y: auto;
 }
 
 .sidebar h2 {
@@ -28,9 +33,10 @@ body {
 }
 
 .sidebar ul li {
-    padding: 10px;
+    padding: 12px;
     cursor: pointer;
     border-bottom: 1px solid #ffffff33;
+    transition: background 0.3s;
 }
 
 .sidebar ul li:hover {
@@ -39,51 +45,36 @@ body {
 
 .submenu {
     display: none;
-    padding-left: 20px;
+    padding-left: 15px;
     background: #0055dd;
 }
 
 .content {
     flex-grow: 1;
     padding: 20px;
+    overflow-y: auto;
 }
 
 .section {
     display: none;
 }
+
+/* Ensure mobile layout matches desktop */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column;
+        flex-direction: row; /* Keep sidebar on left, content on right */
     }
 
     .sidebar {
-        width: 100%;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .sidebar ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .sidebar ul li {
-        flex: 1;
-        padding: 10px;
-        text-align: center;
+        width: 250px; /* Keep sidebar width same */
     }
 
     .content {
-        padding: 15px;
+        padding: 20px;
+        width: calc(100% - 250px); /* Adjust content width */
     }
-}
-html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
 
-.content {
-    max-width: 100%;
-    word-wrap: break-word;
+    .sidebar ul {
+        display: block; /* Prevent items from stacking */
+    }
 }
