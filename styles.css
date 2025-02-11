@@ -51,3 +51,39 @@ body {
 .section {
     display: none;
 }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sidebar ul li {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .content {
+        padding: 15px;
+    }
+}
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.content {
+    max-width: 100%;
+    word-wrap: break-word;
+}
