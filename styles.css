@@ -1,19 +1,31 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     height: 100vh;
     background-color: #f0f8ff;
-    overflow-x: hidden;
 }
 
+/* Header Styles */
+.header {
+    background: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Container Layout */
 .container {
     display: flex;
-    width: 100%;
-    height: 100vh;
+    height: calc(100vh - 50px);
 }
 
+/* Sidebar Menu */
 .sidebar {
     width: 250px;
     background: #0044cc;
@@ -43,38 +55,70 @@ body {
     background: #0033aa;
 }
 
+/* Submenu Styling */
 .submenu {
     display: none;
     padding-left: 15px;
-    background: #0055dd;
 }
 
-.content {
+.submenu li {
+    padding: 10px;
+    background: #0055dd;
+    border-bottom: 1px solid #ffffff33;
+}
+
+.submenu li:hover {
+    background: #0033aa;
+}
+
+/* Main Content */
+.main-content {
     flex-grow: 1;
     padding: 20px;
+    background: #ffffff;
     overflow-y: auto;
 }
 
-.section {
-    display: none;
-}
+/* Mobile Responsive Fix */
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
 
-/* Ensure mobile layout matches desktop */
-@media (max-width: 768px) {
     .container {
-        flex-direction: row; /* Keep sidebar on left, content on right */
+        flex-direction: column;
+        height: auto;
     }
 
     .sidebar {
-        width: 250px; /* Keep sidebar width same */
+        width: 100%;
+        text-align: center;
     }
 
-    .content {
-        padding: 20px;
-        width: calc(100% - 250px); /* Adjust content width */
+    .menu {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .sidebar ul {
-        display: block; /* Prevent items from stacking */
+    .menu a {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    .submenu {
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+
+    .submenu-content {
+        width: 100%;
+        position: relative;
+        left: 0;
+    }
+
+    .main-content {
+        padding: 15px;
     }
 }
