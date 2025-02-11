@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Information</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Menu -->
+        <div class="sidebar">
+            <h2>Loan Menu</h2>
+            <ul>
+                <li onclick="showSection('home-loan')">Home Loan Products</li>
+                <li onclick="showSection('loan-against-property')">Loan Against Property</li>
+                <li onclick="showSection('rate-of-interest')">Rate of Interest</li>
+                <li onclick="showSection('deductions')">Deductions</li>
+                <li class="dropdown" onclick="toggleDropdown('basic-documents')">
+                    Basic Documents ▼
+                    <ul id="basic-documents" class="submenu">
+                        <li onclick="showSection('kyc')">KYC</li>
+                        <li onclick="showSection('property-documents')">Property Documents</li>
+                        <li onclick="showSection('salaried-documents')">Salaried Documents</li>
+                        <li onclick="showSection('self-employed-documents')">Self Employed Documents</li>
+                    </ul>
+                </li>
+                <li onclick="showSection('contact-details')">Contact Details</li>
+            </ul>
+        </div>
+
+        <!-- Content Display Area -->
+        <div class="content">
+            <div id="salaried-documents" class="section">
+                <h2>Salaried Documents</h2>
+                <p>This applies even if there are multiple employments.</p>
+                <ul>
+                    <li>Recent 6 months’ payslips.</li>
+                    <li>1-year bank statement showing salary credits.</li>
+                    <li>3 years of employment proof required (if not available, an internal decision will be taken; please call us).</li>
+                    <li>Company ID card.</li>
+                    <li>2 years PF statement (if there are PF deductions).</li>
+                    <li>2 years Form 16 (if there are deductions).</li>
+                </ul>
+            </div>
+
+            <div id="self-employed-documents" class="section">
+                <h2>Self Employed Documents</h2>
+                <h3>Documented Income:</h3>
+                <ul>
+                    <li>Income tax returns for the last 2 years.</li>
+                    <li>GST for 1 year (if applicable).</li>
+                    <li>Business proof.</li>
+                    <li>Business vintage must be at least 3 years.</li>
+                    <li>1-year bank statements showing business transactions.</li>
+                    <li>Purchase/sale bills (if available).</li>
+                </ul>
+
+                <h3>Undocumented Income:</h3>
+                <ul>
+                    <li>Business proof (Udyam registration or any relevant business documents).</li>
+                    <li>1-year bank statement showing business transactions.</li>
+                    <li>Handwritten records (if any, maintained by the customer).</li>
+                    <li>Purchase bills / Sales records (if available).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
