@@ -1,12 +1,36 @@
-function showSection(sectionId) {
-    document.querySelectorAll('.section').forEach(section => {
-        section.style.display = 'none';
+document.addEventListener("DOMContentLoaded", function () {
+    // Hide all content sections initially
+    let contentSections = document.querySelectorAll(".content-section");
+    contentSections.forEach(section => section.style.display = "none");
+
+    // Add event listener for each menu item
+    let menuItems = document.querySelectorAll(".menu-item");
+    menuItems.forEach(item => {
+        item.addEventListener("click", function () {
+            // Hide all sections
+            contentSections.forEach(section => section.style.display = "none");
+
+            // Get the target content ID from the clicked menu item
+            let targetId = this.getAttribute("data-target");
+            let targetSection = document.getElementById(targetId);
+
+            // Show the selected section
+            if (targetSection) {
+                targetSection.style.display = "block";
+            }
+        });
     });
 
-    document.getElementById(sectionId).style.display = 'block';
-}
-
-function toggleDropdown(id) {
-    const submenu = document.getElementById(id);
-    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-}
+    // Handle submenu toggling
+    let submenuItems = document.querySelectorAll(".submenu-toggle");
+    submenuItems.forEach(item => {
+        item.addEventListener("click", function () {
+            let submenu = this.nextElementSibling;
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            } else {
+                submenu.style.display = "block";
+            }
+        });
+    });
+});
