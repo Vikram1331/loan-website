@@ -82,9 +82,9 @@ body {
     overflow-y: auto;
 }
 
-/* Hide sections initially */
+/* Hide all sections initially */
 .section {
-    display: none;  /* Ensures they are hidden */
+    display: none;
 }
 
 /* Mobile Responsive Fix */

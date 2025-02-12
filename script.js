@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // Attach event listeners for main menu
+    // Attach event listeners for menu items
     let menuItems = document.querySelectorAll(".sidebar ul li:not(.dropdown)");
     menuItems.forEach(item => {
         item.addEventListener("click", function () {
@@ -43,11 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Attach event listener for dropdowns
-    let submenuToggles = document.querySelectorAll(".dropdown");
-    submenuToggles.forEach(item => {
-        item.addEventListener("click", function () {
-            let targetSubmenu = item.querySelector(".submenu");
+    // Attach event listeners for dropdowns
+    let dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach(item => {
+        item.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevents accidental section hiding
+            let targetSubmenu = this.querySelector(".submenu");
             if (targetSubmenu) {
                 targetSubmenu.style.display = (targetSubmenu.style.display === "block") ? "none" : "block";
             }
