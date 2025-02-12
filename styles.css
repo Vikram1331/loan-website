@@ -137,3 +137,7 @@ body {
         padding: 15px;
     }
 }
+.section {
+    display: none !important;  /* Ensures sections stay hidden initially */
+}ss
+
