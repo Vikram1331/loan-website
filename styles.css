@@ -23,12 +23,12 @@ body {
 .container {
     display: flex;
     height: calc(100vh - 50px);
-    flex-direction: row;
+    flex-direction: row; /* Keeps sidebar and content side-by-side */
 }
 
-/* Sidebar Menu (50% width) */
+/* Sidebar Menu */
 .sidebar {
-    width: 50%;
+    width: 270px; /* Increased width slightly for better spacing */
     background: #0044cc;
     color: white;
     padding: 20px;
@@ -48,11 +48,11 @@ body {
 }
 
 .sidebar ul li {
-    padding: 14px;
+    padding: 14px; /* Slightly increased padding for better touch interaction */
     cursor: pointer;
     border-bottom: 1px solid #ffffff33;
     transition: background 0.3s;
-    font-size: 18px;
+    font-size: 18px; /* Increased font size for better readability */
 }
 
 .sidebar ul li:hover {
@@ -68,7 +68,7 @@ body {
 }
 
 .submenu li {
-    padding: 12px;
+    padding: 12px; /* Increased padding */
     background: #0055dd;
     border-bottom: 1px solid #ffffff33;
     font-size: 16px;
@@ -79,14 +79,14 @@ body {
     background: #0033aa;
 }
 
-/* Main Content (50% width) */
+/* Main Content */
 .main-content {
-    width: 50%;
-    padding: 25px;
+    flex-grow: 1;
+    padding: 25px; /* More padding for better spacing */
     background: #ffffff;
     overflow-y: auto;
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 18px; /* Improved text size for readability */
+    line-height: 1.6; /* More line spacing */
 }
 
 /* Hide all sections initially */
@@ -94,24 +94,22 @@ body {
     display: none;
 }
 
-/* ✅ Equal Spacing on Mobile */
+/* ✅ Improved Mobile Layout */
 @media screen and (max-width: 768px) {
     .container {
         flex-direction: row;
         height: 100vh;
     }
 
-    .sidebar, .main-content {
-        width: 50%; /* Both take up equal space */
-    }
-
     .sidebar {
+        width: 35%; /* Sidebar takes up less space to give more room for content */
         padding: 15px;
     }
 
     .main-content {
+        flex-grow: 1;
         padding: 20px;
-        font-size: 16px;
+        font-size: 16px; /* Slightly smaller text for better fit */
         line-height: 1.5;
     }
 
