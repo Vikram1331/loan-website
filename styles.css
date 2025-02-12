@@ -23,12 +23,12 @@ body {
 .container {
     display: flex;
     height: calc(100vh - 50px);
-    flex-direction: row; /* Ensure it stays row-based on all screens */
+    flex-direction: row; /* Keeps sidebar and content side-by-side */
 }
 
 /* Sidebar Menu */
 .sidebar {
-    width: 250px;
+    width: 270px; /* Increased width slightly for better spacing */
     background: #0044cc;
     color: white;
     padding: 20px;
@@ -38,6 +38,8 @@ body {
 
 .sidebar h2 {
     text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
 .sidebar ul {
@@ -46,10 +48,11 @@ body {
 }
 
 .sidebar ul li {
-    padding: 12px;
+    padding: 14px; /* Slightly increased padding for better touch interaction */
     cursor: pointer;
     border-bottom: 1px solid #ffffff33;
     transition: background 0.3s;
+    font-size: 18px; /* Increased font size for better readability */
 }
 
 .sidebar ul li:hover {
@@ -65,7 +68,7 @@ body {
 }
 
 .submenu li {
-    padding: 10px;
+    padding: 12px; /* Increased padding */
     background: #0055dd;
     border-bottom: 1px solid #ffffff33;
     font-size: 16px;
@@ -79,9 +82,11 @@ body {
 /* Main Content */
 .main-content {
     flex-grow: 1;
-    padding: 20px;
+    padding: 25px; /* More padding for better spacing */
     background: #ffffff;
     overflow-y: auto;
+    font-size: 18px; /* Improved text size for readability */
+    line-height: 1.6; /* More line spacing */
 }
 
 /* Hide all sections initially */
@@ -89,22 +94,32 @@ body {
     display: none;
 }
 
-/* ✅ FORCE SIDE-BY-SIDE LAYOUT ON MOBILE */
+/* ✅ Improved Mobile Layout */
 @media screen and (max-width: 768px) {
     .container {
-        flex-direction: row; /* Ensures the sidebar stays on the left */
-        display: flex;
+        flex-direction: row;
         height: 100vh;
     }
 
     .sidebar {
-        width: 250px; /* Sidebar remains fixed like desktop */
-        text-align: left;
+        width: 35%; /* Sidebar takes up less space to give more room for content */
+        padding: 15px;
     }
 
     .main-content {
         flex-grow: 1;
         padding: 20px;
-        overflow-y: auto;
+        font-size: 16px; /* Slightly smaller text for better fit */
+        line-height: 1.5;
+    }
+
+    .sidebar ul li {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .submenu li {
+        font-size: 14px;
+        padding: 10px;
     }
 }
