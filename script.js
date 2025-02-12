@@ -1,40 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Script Loaded: JavaScript is working!");
+    console.log("✅ JavaScript Loaded: Script is working!");
 
-    // Hide all sections initially
+    // **1️⃣ Hide all sections initially**
     let contentSections = document.querySelectorAll(".section");
     contentSections.forEach(section => {
         section.style.display = "none";
     });
 
-    // Function to show a section
+    // **2️⃣ Function to show a section**
     window.showSection = function (sectionId) {
-        console.log("Clicked on: " + sectionId);
-        
-        // Hide all sections
+        console.log("🔹 Showing Section:", sectionId);
+
+        // Hide all sections first
         contentSections.forEach(section => {
             section.style.display = "none";
         });
 
-        // Show the selected section
+        // Show only the selected section
         let targetSection = document.getElementById(sectionId);
         if (targetSection) {
             targetSection.style.display = "block";
         } else {
-            console.log("Error: Section not found!");
+            console.error("❌ Error: Section not found -", sectionId);
         }
     };
 
-    // Function to toggle dropdown submenu
+    // **3️⃣ Function to toggle submenu dropdown**
     window.toggleDropdown = function (submenuId) {
-        console.log("Toggling dropdown: " + submenuId);
+        console.log("🔻 Toggling Dropdown:", submenuId);
         let submenu = document.getElementById(submenuId);
         if (submenu) {
             submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
         }
     };
 
-    // Attach event listeners for menu items
+    // **4️⃣ Attach event listeners for menu items**
     let menuItems = document.querySelectorAll(".sidebar ul li:not(.dropdown)");
     menuItems.forEach(item => {
         item.addEventListener("click", function () {
@@ -43,11 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Attach event listeners for dropdowns
+    // **5️⃣ Attach event listeners for dropdown menus**
     let dropdowns = document.querySelectorAll(".dropdown");
     dropdowns.forEach(item => {
         item.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevents accidental section hiding
+            event.stopPropagation(); // Prevents closing the menu accidentally
             let targetSubmenu = this.querySelector(".submenu");
             if (targetSubmenu) {
                 targetSubmenu.style.display = (targetSubmenu.style.display === "block") ? "none" : "block";
@@ -55,5 +55,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    console.log("Event Listeners Attached!");
+    console.log("✅ Event Listeners Attached!");
 });
