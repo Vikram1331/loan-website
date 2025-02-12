@@ -49,7 +49,7 @@ body {
     cursor: pointer;
     border-bottom: 1px solid #ffffff33;
     transition: background 0.3s;
-    font-size: 18px; /* Increase size for easier clicking */
+    font-size: 18px; /* Bigger tap area */
 }
 
 .sidebar ul li:hover {
@@ -58,7 +58,7 @@ body {
 
 /* Submenu Styling */
 .submenu {
-    display: none; /* Keeps dropdown hidden initially */
+    display: none; /* Keep dropdown hidden initially */
     padding-left: 15px;
 }
 
@@ -83,7 +83,7 @@ body {
 
 /* Ensure Sections are Hidden Initially */
 .section {
-    display: none !important; /* Keeps sections hidden until clicked */
+    display: none !important; /* Prevents sections from showing on load */
 }
 
 /* Mobile Responsive Fix */
@@ -103,34 +103,22 @@ body {
     }
 
     .sidebar ul {
-        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .sidebar ul li {
-        display: block;
+        width: 100%;
         text-align: center;
-        font-size: 16px;
-        padding: 14px; /* Increase tap area for mobile */
-        cursor: pointer;
     }
 
-    /* Submenu fix for mobile */
     .submenu {
-        display: none;
         text-align: center;
-        width: 100%;
     }
 
     .submenu li {
-        display: block;
-        font-size: 15px;
-        padding: 12px;
-    }
-
-    .submenu-content {
         width: 100%;
-        position: relative;
-        left: 0;
     }
 
     .main-content {

@@ -3,27 +3,43 @@ document.addEventListener("DOMContentLoaded", function () {
     let contentSections = document.querySelectorAll(".section");
     contentSections.forEach(section => section.style.display = "none");
 
-    // Function to show selected section
+    // Function to show a section when clicked
     window.showSection = function (sectionId) {
-        contentSections.forEach(section => section.style.display = "none"); // Hide all sections
+        // Hide all sections first
+        contentSections.forEach(section => section.style.display = "none");
+
+        // Show the selected section
         let targetSection = document.getElementById(sectionId);
         if (targetSection) {
-            targetSection.style.display = "block"; // Show the clicked section
+            targetSection.style.display = "block";
         }
     };
 
-    // Ensure mobile tap registers properly
-    let menuItems = document.querySelectorAll(".sidebar ul li");
+    // Function to toggle dropdown submenu
+    window.toggleDropdown = function (submenuId) {
+        let submenu = document.getElementById(submenuId);
+        if (submenu) {
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+    };
+
+    // Ensure menu items work properly
+    let menuItems = document.querySelectorAll(".sidebar ul li:not(.dropdown)");
     menuItems.forEach(item => {
-        item.addEventListener("touchstart", function () {
+        item.addEventListener("click", function () {
             let targetId = this.getAttribute("onclick").match(/'([^']+)'/)[1];
             showSection(targetId);
         });
     });
 
-    // Toggle submenu for Basic Documents
-    window.toggleDropdown = function (submenuId) {
-        let submenu = document.getElementById(submenuId);
-        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    };
+    // Fix submenu clicks in mobile view
+    let submenuToggles = document.querySelectorAll(".dropdown");
+    submenuToggles.forEach(item => {
+        item.addEventListener("click", function () {
+            let targetSubmenu = item.querySelector(".submenu");
+            if (targetSubmenu) {
+                targetSubmenu.style.display = targetSubmenu.style.display === "block" ? "none" : "block";
+            }
+        });
+    });
 });
