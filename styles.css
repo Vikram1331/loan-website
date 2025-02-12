@@ -23,6 +23,7 @@ body {
 .container {
     display: flex;
     height: calc(100vh - 50px);
+    flex-direction: row; /* Ensure it stays row-based on all screens */
 }
 
 /* Sidebar Menu */
@@ -57,7 +58,7 @@ body {
 
 /* Submenu Styling */
 .submenu {
-    display: none;  /* Ensure submenu starts hidden */
+    display: none;
     padding-left: 15px;
     transition: max-height 0.3s ease-in-out;
     overflow: hidden;
@@ -88,46 +89,22 @@ body {
     display: none;
 }
 
-/* Mobile Responsive */
+/* ✅ FORCE SIDE-BY-SIDE LAYOUT ON MOBILE */
 @media screen and (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
-
     .container {
-        flex-direction: column;
-        height: auto;
+        flex-direction: row; /* Ensures the sidebar stays on the left */
+        display: flex;
+        height: 100vh;
     }
 
     .sidebar {
-        width: 100%;
-        text-align: center;
-    }
-
-    .menu {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menu a {
-        display: block;
-        text-align: center;
-        width: 100%;
-    }
-
-    .submenu {
-        position: relative;
-        width: 100%;
-        text-align: center;
-    }
-
-    .submenu-content {
-        width: 100%;
-        position: relative;
-        left: 0;
+        width: 250px; /* Sidebar remains fixed like desktop */
+        text-align: left;
     }
 
     .main-content {
-        padding: 15px;
+        flex-grow: 1;
+        padding: 20px;
+        overflow-y: auto;
     }
 }
