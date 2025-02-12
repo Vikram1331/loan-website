@@ -49,7 +49,7 @@ body {
     cursor: pointer;
     border-bottom: 1px solid #ffffff33;
     transition: background 0.3s;
-    font-size: 18px; /* Bigger tap area */
+    font-size: 18px;
 }
 
 .sidebar ul li:hover {
@@ -58,7 +58,7 @@ body {
 
 /* Submenu Styling */
 .submenu {
-    display: none; /* Keep dropdown hidden initially */
+    display: none;
     padding-left: 15px;
 }
 
@@ -67,6 +67,7 @@ body {
     background: #0055dd;
     border-bottom: 1px solid #ffffff33;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .submenu li:hover {
@@ -81,17 +82,13 @@ body {
     overflow-y: auto;
 }
 
-/* Ensure Sections are Hidden Initially */
+/* Hide sections initially */
 .section {
-    display: none !important; /* Prevents sections from showing on load */
+    display: none;  /* Ensures they are hidden */
 }
 
 /* Mobile Responsive Fix */
 @media screen and (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
-
     .container {
         flex-direction: column;
         height: auto;
@@ -100,12 +97,6 @@ body {
     .sidebar {
         width: 100%;
         text-align: center;
-    }
-
-    .sidebar ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     .sidebar ul li {
