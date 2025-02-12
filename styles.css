@@ -57,7 +57,7 @@ body {
 
 /* Submenu Styling */
 .submenu {
-    display: none;
+    display: none; /* Hide submenu initially */
     padding-left: 15px;
 }
 
@@ -71,6 +71,16 @@ body {
     background: #0033aa;
 }
 
+/* Dropdown Indicator */
+.dropdown {
+    position: relative;
+}
+
+.dropdown::after {
+    content: " ▼";
+    font-size: 12px;
+}
+
 /* Main Content */
 .main-content {
     flex-grow: 1;
@@ -79,7 +89,12 @@ body {
     overflow-y: auto;
 }
 
-/* Mobile Responsive Fix */
+/* Hide all content sections initially */
+.section {
+    display: none;
+}
+
+/* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
     body {
         flex-direction: column;

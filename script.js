@@ -1,54 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Hide all content sections initially
-    let contentSections = document.querySelectorAll(".content-section");
+    let contentSections = document.querySelectorAll(".section");
     contentSections.forEach(section => section.style.display = "none");
 
-    // Add event listener for each main menu item
-    let menuItems = document.querySelectorAll(".menu-item");
-    menuItems.forEach(item => {
-        item.addEventListener("click", function () {
-            // Hide all sections
-            contentSections.forEach(section => section.style.display = "none");
+    // Function to show the clicked section
+    window.showSection = function (sectionId) {
+        contentSections.forEach(section => section.style.display = "none"); // Hide all sections
+        let targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.style.display = "block"; // Show selected section
+        }
+    };
 
-            // Get the target content ID from the clicked menu item
-            let targetId = this.getAttribute("data-target");
-            let targetSection = document.getElementById(targetId);
-
-            // Show the selected section
-            if (targetSection) {
-                targetSection.style.display = "block";
-            }
-        });
-    });
-
-    // Handle submenu toggling
-    let submenuToggles = document.querySelectorAll(".submenu-toggle");
-    submenuToggles.forEach(toggle => {
-        toggle.addEventListener("click", function () {
-            let submenu = this.nextElementSibling;
-            if (submenu.style.display === "block") {
-                submenu.style.display = "none";
-            } else {
-                submenu.style.display = "block";
-            }
-        });
-    });
-
-    // Ensure that clicking a submenu item also triggers content display
-    let submenuItems = document.querySelectorAll(".submenu-item");
-    submenuItems.forEach(submenuItem => {
-        submenuItem.addEventListener("click", function () {
-            // Hide all sections
-            contentSections.forEach(section => section.style.display = "none");
-
-            // Get the target content ID from the clicked submenu item
-            let targetId = this.getAttribute("data-target");
-            let targetSection = document.getElementById(targetId);
-
-            // Show the selected section
-            if (targetSection) {
-                targetSection.style.display = "block";
-            }
-        });
-    });
+    // Function to toggle dropdown menus
+    window.toggleDropdown = function (submenuId) {
+        let submenu = document.getElementById(submenuId);
+        if (submenu.style.display === "block") {
+            submenu.style.display = "none"; // Hide submenu if already open
+        } else {
+            submenu.style.display = "block"; // Show submenu if hidden
+        }
+    };
 });
