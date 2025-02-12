@@ -49,7 +49,6 @@ body {
     cursor: pointer;
     border-bottom: 1px solid #ffffff33;
     transition: background 0.3s;
-    font-size: 18px;
 }
 
 .sidebar ul li:hover {
@@ -58,8 +57,10 @@ body {
 
 /* Submenu Styling */
 .submenu {
-    display: none;
+    display: none;  /* Ensure submenu starts hidden */
     padding-left: 15px;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 .submenu li {
@@ -87,8 +88,12 @@ body {
     display: none;
 }
 
-/* Mobile Responsive Fix */
+/* Mobile Responsive */
 @media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
     .container {
         flex-direction: column;
         height: auto;
@@ -99,17 +104,27 @@ body {
         text-align: center;
     }
 
-    .sidebar ul li {
-        width: 100%;
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu a {
+        display: block;
         text-align: center;
+        width: 100%;
     }
 
     .submenu {
+        position: relative;
+        width: 100%;
         text-align: center;
     }
 
-    .submenu li {
+    .submenu-content {
         width: 100%;
+        position: relative;
+        left: 0;
     }
 
     .main-content {

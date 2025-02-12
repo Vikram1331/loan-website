@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("🔻 Toggling Dropdown:", submenuId);
         let submenu = document.getElementById(submenuId);
         if (submenu) {
+            // Toggle between showing and hiding the submenu
             submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
         }
     };
@@ -47,9 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let dropdowns = document.querySelectorAll(".dropdown");
     dropdowns.forEach(item => {
         item.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevents closing the menu accidentally
+            event.stopPropagation(); // Prevents menu from closing accidentally
+
             let targetSubmenu = this.querySelector(".submenu");
             if (targetSubmenu) {
+                // Toggle submenu visibility
                 targetSubmenu.style.display = (targetSubmenu.style.display === "block") ? "none" : "block";
             }
         });
